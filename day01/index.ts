@@ -32,9 +32,8 @@ export const day01 = {
   },
   part2: () => {
     return input.parseLine
-      .map(replaceWithNumber)
       .map(replaceWithNumber) // jag vet, men WHY göra en första uppgift så omständig
-      .map((x) => x.match(/\d/gm) ?? [])
+      .map((x) => replaceWithNumber(x).match(/\d/gm) ?? [])
       .map((numbers) => Number([numbers.at(0), numbers.at(-1)].join('')))
       .reduce(add)
   }
